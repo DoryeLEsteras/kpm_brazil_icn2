@@ -1,0 +1,8 @@
+&BANDS
+prefix = 'mos2'
+outdir = './tmp'
+filband = 'mos2.bands1.dat'
+lsym=.true.
+spin_component= 1
+/
+

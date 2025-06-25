@@ -1,0 +1,66 @@
+#==================================================#
+#                 SIESTA input file                #  
+#==================================================#
+    # Basic parameters
+
+    SystemLabel mos2
+    NumberOfSpecies 2
+    NumberOfAtoms 3
+    xc.functional GGA
+    xc.authors  PBE
+    #scf.H.tolerance 1.e-4 eV
+    #scf.dm.tolerance 1.e-5
+
+    # Specific parameters
+
+
+    Spin spin-orbit
+
+
+
+    # Parameters to converge
+
+    PAO.BasisSize DZP
+    ElectronicTemperature 50.0 K
+    MeshCutoff 1200 Ry
+    %block kgrid_monkhorst_pack
+     12      0       0        0.0
+     0       12      0        0.0
+     0       0       1       0.0
+    %endblock kgrid_monkhorst_pack
+
+    # Convergence methods
+
+    SCF.Mixer.Method Broyden
+    SCF.Mixer.Weight 0.1
+    SCF.Mixer.History 10
+    MaxSCFIterations 800
+
+    # To write
+
+    Charge.Mulliken            end    
+    Charge.HirshfeldPop        end  
+    Charge.VoronoiPop          end
+    SaveHS                     True
+
+    # Fixed Data
+
+    %BLOCK ChemicalSpeciesLabel
+    1 42 Mo /opt/project/dorye_projects/brazil_kpm/lda_pp/Mo.rel.psml
+    2 16 S /opt/project/dorye_projects/brazil_kpm/lda_pp/S.rel.psml
+    %ENDBLOCK ChemicalSpeciesLabel
+
+    LatticeConstant 1 Ang
+    %block LatticeVectors
+    3.182337545 -0.000000000 0.000000000
+    -1.591168774 2.755985156 0.000000000
+    0.000000000 0.000000000 18.153632999
+    %endblock LatticeVectors
+
+    AtomicCoordinatesFormat  fractional
+    %block AtomicCoordinatesAndAtomicSpecies
+0.333333333 0.666666667 0.086855323 1
+0.666666667 0.333333333 0.000784014 2
+0.666666667 0.333333333 0.172923105 2
+    %endblock AtomicCoordinatesAndAtomicSpecies
+

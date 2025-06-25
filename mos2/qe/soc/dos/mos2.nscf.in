@@ -1,0 +1,52 @@
+#==================================================#
+#               QuantumEspresso input file         #
+#==================================================#
+
+&CONTROL
+calculation = 'nscf'
+verbosity = 'high'
+outdir = './tmp'
+prefix = 'mos2'
+pseudo_dir = '/opt/project/dorye_projects/brazil_kpm/lda_pp'
+tprnfor = .false.
+tstress = .false.
+/
+
+&SYSTEM
+occupations = 'tetrahedra'
+ibrav     = 0 
+nat  = 3                  
+ntyp = 2              
+ecutwfc   = 120
+ecutrho   = 1200
+
+
+lspinorb = .true.
+noncolin = .true.
+
+
+/
+
+&ELECTRONS
+conv_thr = 1e-07
+mixing_beta = 0.1
+mixing_mode = 'plain'
+/
+
+ATOMIC_SPECIES
+Mo 95.95 Mo.rel.UPF
+S 32.06 S.rel.UPF
+
+
+CELL_PARAMETERS angstrom
+3.182337545 -0.000000000 0.000000000
+-1.591168774 2.755985156 0.000000000
+0.000000000 0.000000000 18.153632999
+
+ATOMIC_POSITIONS crystal
+Mo 0.333333333 0.666666667 0.086855323
+S 0.666666667 0.333333333 0.000784014
+S 0.666666667 0.333333333 0.172923105
+
+K_POINTS automatic
+20 20 1 1 1 1

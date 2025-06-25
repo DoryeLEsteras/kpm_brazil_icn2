@@ -1,0 +1,8 @@
+&BANDS
+prefix = 'ptse2'
+outdir = './tmp'
+filband = 'ptse2.bands1.dat'
+lsym=.true.
+spin_component= 1
+/
+
