@@ -1,0 +1,1 @@
+it uses pybinding so it just works in my windows computer, using wsl and python3.8
